@@ -10,10 +10,11 @@ citrixTitle := "PowerVS Desktop - Google Chrome"
 skypeX := 195
 skypeY := 1028
 
+; Whether or not we are currently checking for new messages
+checkForMessagesTimerActive := False
+
 ; Keep Numlock on forever.
 SetNumLockState, AlwaysOn
-
-timerIsActive := False
 
 ; Reload this script, if you make any changes
 ^r::
@@ -26,6 +27,7 @@ Return
 Return
 
 ; Check to see the location of the mouse and what color it is returning.
+; Use this when you need to recalibrate the checking for new messages
 ^y::
     WinGetActiveTitle, currentWindow
     IfWinExist, %citrixTitle%
@@ -45,15 +47,15 @@ Return
 ; Toggle checking to see if there are any new Skype for Business IMs waiting.
 ; You need to make sure that the Citrix Desktop is the active tab on Chrome.
 ^q::
-    if (timerIsActive)
+    if (checkForMessagesTimerActive)
     {
-        timerIsActive := false
+        checkForMessagesTimerActive := false
         SetTimer, CheckForNewMessages, Off
         MsgBox, No longer searching for messages
     }
     Else
     {
-        timerIsActive := true
+        checkForMessagesTimerActive := true
         SetTimer, CheckForNewMessages, 10000
         MsgBox, Now searching for messages
     }
@@ -77,6 +79,9 @@ Space::
 Return
 #IfWinActive
 
+; Checks the Citrix desktop to see if any new IMs have arrived and plays a sound
+; because the sound from Citrix doesn't always play or doesn't always play loud enough
+; to be heard.
 CheckForNewMessages:
     WinGetActiveTitle, currentWindow
     IfWinExist, %citrixTitle%
