@@ -68,7 +68,7 @@ Return
 Return
 
 ; Open the calculator
-^k::
+#k::
     Run, calc.exe
 Return
 
