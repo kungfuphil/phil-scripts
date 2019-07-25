@@ -72,6 +72,16 @@ Return
     Run, calc.exe
 Return
 
+; Control the volume by holding down Shift and moving the mouse wheel up or down
+; Volume down
++WheelDown::
+    SoundSet, -1
+Return
+; Volume up
++WheelUp::
+    SoundSet, +1
+Return
+
 ; Use spacebar to mute/unmute the microphone when Skype is the foremost window
 #IfWinActive, Skype
 Space::
