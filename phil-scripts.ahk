@@ -5,6 +5,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance, force
 #Persistent
 
+; VARIABLES - YOUR NAME
+; This doesn't change for me, but in case someone else wants to
+; make use of this hotstring, just put your name here.
+name := "Philip Ho"
+
 ; VARIABLES - CITRIX/SKYPE FOR BUSINESS
 citrixTitle := "PowerVS Desktop - Google Chrome"
 skypeX := 195
@@ -21,10 +26,26 @@ SetNumLockState, AlwaysOn
     Reload
 Return
 
+; HOTSTRINGS
+
 ; Because I haven't yet found a suitable emoji that expresses this feeling
 :*:/fliptable::
     Send, (ノಠ益ಠ)ノ彡┻━┻
 Return
+
+; Replaces %sig% with your whole name
+:*:sig::
+    Send, %name%
+Return
+
+; Replaces "tdt" with the current date in American format.
+:*:tdt::
+    FormatTime, timestamp, A_Now, M/d/yyyy
+    Send, %timestamp%
+Return
+
+
+; HOTKEYS
 
 ; Check to see the location of the mouse and what color it is returning.
 ; Use this when you need to recalibrate the checking for new messages
