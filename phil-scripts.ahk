@@ -103,6 +103,17 @@ Return
     SoundSet, +1
 Return
 
+; Change the volume quicker by holding down Ctrl+Shift and moving the mouse wheel up or down
+; Volume down
+^+WheelDown::
+    SoundSet, -10
+Return
+
+; Volume up
+^+WheelUp::
+    SoundSet, +10
+Return
+
 ; Use spacebar to mute/unmute the microphone when Skype is the foremost window
 #IfWinActive, Skype
 Space::
