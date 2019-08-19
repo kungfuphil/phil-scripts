@@ -5,10 +5,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance, force
 #Persistent
 
-; VARIABLES - YOUR NAME
-; This doesn't change for me, but in case someone else wants to
-; make use of this hotstring, just put your name here.
+; VARIABLES - YOUR SIGNATURE
+; For use in the signature hotstrings
 name := "Philip Ho"
+title := "Sr. BTA"
 
 ; VARIABLES - CITRIX/SKYPE FOR BUSINESS
 citrixTitle := "PowerVS Desktop - Google Chrome"
@@ -33,9 +33,16 @@ Return
     Send, (ノಠ益ಠ)ノ彡┻━┻
 Return
 
-; Replaces %sig% with your whole name
-:*:sig::
+; Replaces "sig1" with your whole name
+:*:sig1::
     Send, %name%
+Return
+
+; Replaces "sig2" with your name, title, "Yes", and current date
+; for use in filling out forms.
+:*:sig2::
+    FormatTime, timestamp, A_Now, M/d/yyyy
+    Send, %name%{Tab}%title%{Tab}Yes{Tab}%timestamp%
 Return
 
 ; Replaces "tdt" with the current date in American format.
