@@ -33,6 +33,13 @@ Return
     Send, (ノಠ益ಠ)ノ彡┻━┻
 Return
 
+; Print the date for next Monday
+:*:/nmon::
+    ; Calculate when is next Monday
+    addDays := 9 - A_WDay
+    Send, % GetTimestamp(addDays)
+Return
+
 ; Replaces "sig1" with your whole name
 :*:sig1::
     Send, %name%
@@ -41,14 +48,13 @@ Return
 ; Replaces "sig2" with your name, title, "Yes", and current date
 ; for use in filling out forms.
 :*:sig2::
-    FormatTime, timestamp, A_Now, M/d/yyyy
-    Send, %name%{Tab}%title%{Tab}Yes{Tab}%timestamp%
+    timestmp := GetTimestamp()
+    Send, %name%{Tab}%title%{Tab}Yes{Tab}%timestmp%
 Return
 
 ; Replaces "tdt" with the current date in American format.
 :*:tdt::
-    FormatTime, timestamp, A_Now, M/d/yyyy
-    Send, %timestamp%
+    Send, % GetTimestamp()
 Return
 
 
@@ -147,3 +153,11 @@ CheckForNewMessages:
 
     WinActivate, %currentWindow%
 Return
+
+GetTimestamp(daysToAdd := 0)
+{
+    newDate := A_Now
+    newDate += daysToAdd, Days
+    FormatTime, timestamp, %newDate%, M/d/yyyy
+    return %timestamp%
+}
