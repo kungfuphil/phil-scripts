@@ -28,6 +28,11 @@ Return
 
 ; HOTSTRINGS
 
+; Because I don't like typing this out every time
+:*:/dbout::
+    Send, dbms_output.put_line();{Left 2}
+Return
+
 ; Because I haven't yet found a suitable emoji that expresses this feeling
 :*:/fliptable::
     Send, (ノಠ益ಠ)ノ彡┻━┻
