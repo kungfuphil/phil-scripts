@@ -101,7 +101,7 @@ Return
 Return
 
 ; Close that stupid popup if it appears and makes itself full screen
-^p::
+^[::
     IfWinExist, MICROSOFT SECURITY WARNING
         WinClose, MICROSOFT SECURITY WARNING
 Return

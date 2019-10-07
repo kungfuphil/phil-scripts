@@ -18,7 +18,7 @@ When you type these, your text will get replaced with something else. See the ta
 
 |Hotkey                     |Function                                                                   |
 |---------------------------|---------------------------------------------------------------------------|
-|Ctrl+P                     |Closes MICROSOFT SECURITY WARNING windows                                  |
+|Ctrl+[                     |Closes MICROSOFT SECURITY WARNING windows                                  |
 |Ctrl+Q                     |Toggles checking for new Skype messages on or off                          |
 |Ctrl+R                     |Reloads the script                                                         |
 |Ctrl+Y                     |Displays the hex color code at the defined coordinates of the Skype window |
