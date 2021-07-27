@@ -57,8 +57,8 @@ Return
     Send, %name%{Tab}%title%{Tab}Yes{Tab}%timestmp%
 Return
 
-; Replaces "tdt" with the current date in American format.
-:*:tdt::
+; Replaces "/dt" with the current date in American format.
+:*:/dt::
     Send, % GetTimestamp()
 Return
 
@@ -130,6 +130,10 @@ Return
 ; Volume up
 ^+WheelUp::
     SoundSet, +10
+Return
+
+F12::
+	Process, Close, Witcher
 Return
 
 ; Use spacebar to mute/unmute the microphone when Skype is the foremost window
